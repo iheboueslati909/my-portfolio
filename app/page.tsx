@@ -14,6 +14,9 @@ import DJInstagram from "./components/sections/DJInstagram";
 import DesignerBehance from "./components/sections/DesignerBehance";
 import DesignerPortfolio from "./components/sections/DesignerPortfolio";
 import TopBar from "./components/Topbar";
+import SoftwareEngineerAboutMe from "./components/sections/SoftwareEngineerAboutMe";
+import DJInstagramAboutMe from "./components/sections/DJInstagramAboutMe";
+import DesignerAboutMe from "./components/sections/DesignerAboutMe";
 
 export default function MainPage() {
   const { character, setCharacter } = useCharacter();
@@ -24,7 +27,10 @@ export default function MainPage() {
     if (!character) {
       router.push("/character-select");
     }
-  }, [character, router]);
+    if (!section) {
+      setSection("about"); // Default to "About Me" or equivalent
+    }
+  }, [section, character, router]);
 
   if (!character) {
     return (
@@ -39,6 +45,7 @@ export default function MainPage() {
 
   const renderContent = () => {
     if (character === "software") {
+      if(!section) return <SoftwareEngineerAboutMe />;
       if (section === "projects") return <SoftwareProjects />;
       if (section === "resume") return <SoftwareResume />;
       if (section === "experience") return (
@@ -49,10 +56,12 @@ export default function MainPage() {
       );
     }
     if (character === "dj") {
+      if (!section) return <DJInstagramAboutMe />;
       if (section === "soundcloud") return <DJSoundcloud />;
       if (section === "instagram") return <DJInstagram />;
     }
     if (character === "designer") {
+      if (!section) return <DesignerAboutMe />;
       if (section === "behance") return <DesignerBehance />;
       if (section === "portfolio") return <DesignerPortfolio />;
     }

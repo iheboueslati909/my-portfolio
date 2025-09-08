@@ -15,3 +15,27 @@ body {
 .nes-container {
   margin-bottom: 1rem;
 }
+
+/* app/globals.css */
+.solid-bg {
+  background: linear-gradient(135deg, #6a5acd 0%, #836fff 100%);
+  min-height: 100vh;
+}
+
+/* Container backgrounds */
+.nes-container {
+  background-color: #ffffff;
+}
+
+.nes-container.is-dark {
+  background-color: #212529;
+}
+
+/* Optional: Add some depth with shadows */
+.nes-container {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.nes-container.is-dark {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}

@@ -7,7 +7,7 @@ import Sidebar from "./components/Sidebar";
 import { useRouter } from "next/navigation";
 
 // Import sections
-import SoftwareProjects from "./components/sections/SoftwareProjects"; 
+import SoftwareProjects from "./components/sections/SoftwareProjects";
 import SoftwareResume from "./components/sections/SoftwareResume";
 import DJSoundcloud from "./components/sections/DJSoundcloud";
 import DJInstagram from "./components/sections/DJInstagram";
@@ -70,20 +70,20 @@ export default function MainPage() {
   };
 
   return (
-    <div className="flex flex-col h-screen space-y-4">
+    <div className="flex flex-col">
       {/* Top Bar */}
       <TopBar onBack={handleBackToSelection} />
-      
+
       {/* Sidebar + Content */}
-      <div className="flex flex-1 overflow-hidden pt-6">
+      <div className="flex">
         {/* Sidebar with fixed width and padding */}
-        <div className="w-64 bg-white border-r-4 border-gray-300 p-4">
-<Sidebar onSelect={setSection} activeSection={section} />
+        <div className="bg-white border-r-6">
+          <Sidebar onSelect={setSection} activeSection={section} />
         </div>
-        
+
         {/* Main Content with proper spacing */}
-        <div className="nes-container flex-1 p-6 pl-8 overflow-y-auto">
-            {renderContent()}
+        <div className="flex-1 ">
+          {renderContent()}
         </div>
       </div>
     </div>

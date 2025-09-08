@@ -58,7 +58,7 @@ export default function SoftwareContact() {
           >
             Connect
           </a>
-
+{/* 
           <a
             href="https://github.com/iheb-oueslati"
             target="_blank"
@@ -67,7 +67,7 @@ export default function SoftwareContact() {
             style={{ minWidth: "120px" }}
           >
             Send Quest Scroll
-          </a>
+          </a> */}
         </div>
       </div>
 

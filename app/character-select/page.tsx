@@ -14,21 +14,27 @@ export default function CharacterSelect() {
   };
 
   const characters = [
-    { id: "software", label: "Software Engineer", image: "/avatars/engineer-avatar.png" },
-    { id: "dj", label: "DJ / Producer", image: "/avatars/engineer-avatar.png" },
-    { id: "designer", label: "Designer", image: "/avatars/engineer-avatar.png" },
+    { id: "software", label: "Software Engineer", image: "/avatars/engineer-avatar.png", unlocked: true },
+    { id: "dj", label: "DJ / Producer", image: "/avatars/engineer-avatar.png", unlocked: true },
+    { id: "designer", label: "Designer", image: "/avatars/engineer-avatar.png", unlocked: true },
+    { id: "locked", label: "Locked Character", image: "/avatars/locked-character.png", unlocked: false },
   ];
 
   return (
-    <div className="flex justify-center items-center min-h-screen bg-gray-100">
-      <div className="nes-container with-title is-rounded max-w-2xl p-12">
+    <div className="flex justify-center items-center min-h-screen">
+      <div className="nes-container with-title is-rounded">
         <h1 className="title text-lg">Select Your Character</h1>
 
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mt-6">
+        <div
+          className="grid"
+          style={{ gridTemplateColumns: "repeat(auto-fit, minmax(150px, 1fr))", gap: "1rem" }}
+        >
           {characters.map((character) => (
             <div
               key={character.id}
-              className="nes-container is-rounded flex flex-col items-center justify-between p-2 w-32 h-48"
+              className={`nes-container is-rounded flex flex-col items-center justify-between p-2 w-32 h-48 ${
+                !character.unlocked ? "opacity-50" : ""
+              }`}
             >
               <Image
                 src={character.image}
@@ -38,12 +44,19 @@ export default function CharacterSelect() {
                 className="object-contain mb-2"
               />
               <h2 className="text-xs text-center mb-2">{character.label}</h2>
-              <button
-                className="nes-btn is-primary mt-auto text-xs px-2 py-1"
-                onClick={() => selectCharacter(character.id)}
-              >
-                Select
-              </button>
+
+              {character.unlocked ? (
+                <button
+                  className="nes-btn is-primary mt-auto text-xs px-2 py-1"
+                  onClick={() => selectCharacter(character.id)}
+                >
+                  Select
+                </button>
+              ) : (
+                <button className="nes-btn is-disabled mt-auto text-xs px-2 py-1" disabled>
+                  Locked
+                </button>
+              )}
             </div>
           ))}
         </div>

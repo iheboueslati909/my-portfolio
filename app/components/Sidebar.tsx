@@ -15,8 +15,9 @@ export default function Sidebar({ onSelect, activeSection }: SidebarProps) {
       ? [
           { id: "about", label: "About Me" },
           { id: "projects", label: "Projects" },
-          { id: "skills", label: "Skills" },
+          { id: "stack", label: "stack" },
           { id: "contact", label: "Contact" },
+          { id: "experience", label: "experience" },
         ]
       : character === "dj"
       ? [
@@ -35,7 +36,7 @@ export default function Sidebar({ onSelect, activeSection }: SidebarProps) {
       : [];
 
   return (
-    <div className="nes-container with-title p-4 h-full">
+    <div className="nes-container with-title p-4">
       <p className="title">Menu</p>
       <div className="flex flex-col space-y-3">
         {menuItems.map((item) => (

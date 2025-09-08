@@ -8,7 +8,7 @@ import TopBar from "./components/Topbar";
 import Sidebar from "./components/Sidebar";
 
 // Sections
-import SoftwareProjects from "./components/sections/SoftwareProjects";
+import SoftwareExperience from "./components/sections/SoftwareExperience";
 import SoftwareResume from "./components/sections/SoftwareResume";
 import SoftwareEngineerAboutMe from "./components/sections/SoftwareEngineerAboutMe";
 import DJInstagramAboutMe from "./components/sections/DJInstagramAboutMe";
@@ -17,6 +17,9 @@ import DJInstagram from "./components/sections/DJInstagram";
 import DesignerAboutMe from "./components/sections/DesignerAboutMe";
 import DesignerPortfolio from "./components/sections/DesignerPortfolio";
 import DesignerBehance from "./components/sections/DesignerBehance";
+import SoftwareProjects from "./components/sections/SoftwareProjects";
+import SoftwareStack from "./components/sections/SoftwareStack";
+import SoftwareContact from "./components/sections/SoftwareContact";
 
 export default function MainPage() {
   const { character, setCharacter } = useCharacter();
@@ -42,8 +45,12 @@ export default function MainPage() {
   const renderContent = () => {
     if (character === "software") {
       if (!section) return <SoftwareEngineerAboutMe />;
-      if (section === "projects") return <SoftwareProjects />;
+      if (section === "experience") return <SoftwareExperience />;
       if (section === "resume") return <SoftwareResume />;
+      if (section === "about") return <SoftwareEngineerAboutMe />;
+      if (section === "contact") return <SoftwareContact />;
+      if (section === "stack") return <SoftwareStack />;
+      if (section === "projects") return <SoftwareProjects />;
     }
     if (character === "dj") {
       if (!section) return <DJInstagramAboutMe />;
@@ -69,17 +76,17 @@ export default function MainPage() {
   };
 
   return (
-    <div>
+    <div style={{ padding: "0.5rem" }}>
       <TopBar onBack={handleBackToSelection} />
 
-      <div style={{ display: "flex" }}>
+      <div style={{ display: "flex",padding: "1rem" }}>
         {/* Sidebar */}
         <div>
           <Sidebar onSelect={setSection} activeSection={section} />
         </div>
 
         {/* Main Content */}
-        <div style={{ flex: 1, padding: "1rem" }}>
+        <div style={{ flex: 1, paddingLeft: "1rem" }}>
           {renderContent()}
         </div>
       </div>

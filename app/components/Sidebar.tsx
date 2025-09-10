@@ -22,7 +22,8 @@ export default function Sidebar({ onSelect, activeSection }: SidebarProps) {
       : character === "dj"
       ? [
           { id: "about", label: "About Me" },
-          { id: "mixes", label: "Mixes" },
+          { id: "soundcloud", label: "Sets" },
+          { id: "soundcloudTracks", label: "Tracks" },
           { id: "events", label: "Events" },
           { id: "contact", label: "Contact" },
         ]

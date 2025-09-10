@@ -11,15 +11,18 @@ import Sidebar from "./components/Sidebar";
 import SoftwareExperience from "./components/sections/SoftwareExperience";
 import SoftwareResume from "./components/sections/SoftwareResume";
 import SoftwareEngineerAboutMe from "./components/sections/SoftwareEngineerAboutMe";
-import DJInstagramAboutMe from "./components/sections/DJInstagramAboutMe";
 import DJSoundcloud from "./components/sections/DJSoundcloud";
-import DJInstagram from "./components/sections/DJInstagram";
+import DJInstagram from "./components/sections/DJContact";
 import DesignerAboutMe from "./components/sections/DesignerAboutMe";
 import DesignerPortfolio from "./components/sections/DesignerPortfolio";
 import DesignerBehance from "./components/sections/DesignerBehance";
 import SoftwareProjects from "./components/sections/SoftwareProjects";
 import SoftwareStack from "./components/sections/SoftwareStack";
 import SoftwareContact from "./components/sections/SoftwareContact";
+import DJSoundcloudTracks from "./components/sections/DJSoundcloudTracks";
+import DJAboutMe from "./components/sections/DJAboutMe";
+import DJEvents from "./components/sections/DJEvents";
+import DJContact from "./components/sections/DJContact";
 
 export default function MainPage() {
   const { character, setCharacter } = useCharacter();
@@ -53,9 +56,12 @@ export default function MainPage() {
       if (section === "projects") return <SoftwareProjects />;
     }
     if (character === "dj") {
-      if (!section) return <DJInstagramAboutMe />;
+      if (!section) return <DJAboutMe />;
       if (section === "soundcloud") return <DJSoundcloud />;
-      if (section === "instagram") return <DJInstagram />;
+      if (section === "soundcloudTracks") return <DJSoundcloudTracks />;
+      if (section === "about") return <DJAboutMe />;
+      if (section === "events") return <DJEvents />;
+      if (section === "contact") return <DJContact />;
     }
     if (character === "designer") {
       if (!section) return <DesignerAboutMe />;

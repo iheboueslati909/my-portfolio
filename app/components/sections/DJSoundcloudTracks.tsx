@@ -5,20 +5,20 @@ type DJSet = { title: string; cover: string; url: string; badges: string[] };
 
 const sets: DJSet[] = [
   {
-    title: "Neon tetra — INHALE Podcast 002",
-    cover: "/sets-covers/inhale.jpg",
-    url: "https://soundcloud.com/inhale-records/neon-tetra-1",
+    title: "Neon Tetra — Fata Morgana",
+    cover: "/tracks-covers/fata-morgana.jpg",
+    url: "https://soundcloud.com/radiocarro_eargasm/neon-tetra-fata-morgana",
     badges: ["Bedroom", "Techno", "Podcast"],
   },
   {
-    title: "NEON TETRA @RadioCarro podcast 001",
-    cover: "/sets-covers/radio-carro.jpg",
-    url: "https://soundcloud.com/radiocarro_eargasm/radio",
+    title: "NEON TETRA @RadioCarro Podcast 001",
+    cover: "/tracks-covers/revery.jpg",
+    url: "https://soundcloud.com/pope_me/neon-tetra-revery",
     badges: ["Club", "House", "RadioCarro"],
   },
 ];
 
-export default function DJSoundcloud() {
+export default function DJSoundcloudTracks() {
   const [progresses, setProgresses] = useState<number[]>(sets.map(() => 0));
   const [currentIndex, setCurrentIndex] = useState<number | null>(null);
 
@@ -76,7 +76,7 @@ export default function DJSoundcloud() {
             </div>
 
             <div className="flex gap-4 mt-2 " >
-              <button className="nes-btn is-success" style={{width: '100px'}} onClick={() => togglePlay(i, set.url)}>
+              <button className="nes-btn is-success" onClick={() => togglePlay(i, set.url)}>
                 {currentIndex === i && AudioPlayer.getAudio() && !AudioPlayer.getAudio()!.paused
                   ? "⏸ Pause"
                   : "▶ Play"}

@@ -1,20 +1,26 @@
 import { useState, useEffect } from "react";
 import AudioPlayer from "@/lib/AudioPlayer";
+import Badge from "../ui-components/Badge";
+import { Genre } from "@/app/enum/genre";
+import { PerformancePlace } from "@/app/enum/performancePlace";
 
-type DJSet = { title: string; cover: string; url: string; badges: string[] };
+type DJSet = { title: string; cover: string; url: string; genres: string[], places: string[] };
 
 const sets: DJSet[] = [
   {
     title: "Neon Tetra — Fata Morgana",
     cover: "/tracks-covers/fata-morgana.jpg",
     url: "https://soundcloud.com/radiocarro_eargasm/neon-tetra-fata-morgana",
-    badges: ["Bedroom", "Techno", "Podcast"],
+    genres: [Genre.Electronic],
+    places: [PerformancePlace.Bedroom],
+
   },
   {
     title: "NEON TETRA @RadioCarro Podcast 001",
     cover: "/tracks-covers/revery.jpg",
     url: "https://soundcloud.com/pope_me/neon-tetra-revery",
-    badges: ["Club", "House", "RadioCarro"],
+    genres: [Genre.Hypnotic_Techno, Genre.Melodic_Techno],
+    places: [PerformancePlace.Bedroom]
   },
 ];
 
@@ -69,22 +75,24 @@ export default function DJSoundcloudTracks() {
 
           <div className="flex flex-col flex-1 ">
             <h3>{set.title}</h3>
-            <div className="flex gap-2">
-              {set.badges.map((b) => (
-                <span key={b} className="nes-badge"><span className="is-primary">{b}</span></span>
-              ))}
+            <div className="flex flex-wrap gap-2" style={{ padding: "0.25rem" }}>
+                {set.genres.map((b) => (
+                  <Badge key={b} text={b} variant="primary" />
+                ))}
+                                {set.places.map((b) => (
+                  <Badge key={b} text={b} variant="dark" />
+                ))}
             </div>
 
-            <div className="flex gap-4 mt-2 " >
-              <button className="nes-btn is-success" onClick={() => togglePlay(i, set.url)}>
+            <div className="flex gap-4 mt-2 "  style={{ marginRight: '1rem', marginTop: '0.5rem' }}>
+              <button className="nes-btn is-success" style={{ width: '100px' }} onClick={() => togglePlay(i, set.url)}>
                 {currentIndex === i && AudioPlayer.getAudio() && !AudioPlayer.getAudio()!.paused
                   ? "⏸ Pause"
                   : "▶ Play"}
               </button>
 
-  <div className="flex flex-col flex-1 justify-center">
-
-                <div className="flex flex-col w-full">
+              <div className="flex flex-col flex-1 justify-center" style={{ marginLeft: '0.25rem' }}>
+                <div className="flex flex-col" >
                   <progress
                     className="nes-progress is-primary w-full"
                     value={progresses[i]}

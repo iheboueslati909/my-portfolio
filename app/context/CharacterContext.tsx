@@ -6,15 +6,18 @@ import React, { createContext, useContext, useState, ReactNode } from 'react';
 interface CharacterContextType {
   character: string | null;
   setCharacter: (character: string | null) => void;
+  showContact: boolean;
+  setShowContact: (show: boolean) => void;
 }
 
 const CharacterContext = createContext<CharacterContextType | undefined>(undefined);
 
 export function CharacterProvider({ children }: { children: ReactNode }) {
   const [character, setCharacter] = useState<string | null>(null);
+  const [showContact, setShowContact] = useState(false);
 
   return (
-    <CharacterContext.Provider value={{ character, setCharacter }}>
+    <CharacterContext.Provider value={{ character, setCharacter, showContact, setShowContact }}>
       {children}
     </CharacterContext.Provider>
   );

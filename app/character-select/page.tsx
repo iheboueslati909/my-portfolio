@@ -3,10 +3,18 @@
 import Image from "next/image";
 import { useCharacter } from "../context/CharacterContext";
 import { useRouter } from "next/navigation";
+import { useEffect } from "react";
 
 export default function CharacterSelect() {
   const { setCharacter } = useCharacter();
   const router = useRouter();
+  const { setShowContact } = useCharacter();
+
+  //useEffect
+    useEffect(() => {
+      setShowContact(false);
+    }, []);
+  
 
   const selectCharacter = (character: string) => {
     setCharacter(character);

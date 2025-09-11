@@ -23,9 +23,11 @@ import DJSoundcloudTracks from "./components/sections/DJSoundcloudTracks";
 import DJAboutMe from "./components/sections/DJAboutMe";
 import DJEvents from "./components/sections/DJEvents";
 import DJContact from "./components/sections/DJContact";
+import NPCDialogueBar from "./components/sections/NPCDialogueBar";
 
 export default function MainPage() {
-  const { character, setCharacter } = useCharacter();
+  const { character, setCharacter, showContact } = useCharacter();
+  const { setShowContact } = useCharacter();
   const [section, setSection] = useState<string | null>(null);
   const router = useRouter();
 
@@ -47,27 +49,24 @@ export default function MainPage() {
 
   const renderContent = () => {
     if (character === "software") {
-      if (!section) return <SoftwareEngineerAboutMe />;
+      if (!section || section === "about") return <SoftwareEngineerAboutMe />;
       if (section === "experience") return <SoftwareExperience />;
       if (section === "resume") return <SoftwareResume />;
-      if (section === "about") return <SoftwareEngineerAboutMe />;
-      if (section === "contact") return <SoftwareContact />;
       if (section === "stack") return <SoftwareStack />;
       if (section === "projects") return <SoftwareProjects />;
     }
     if (character === "dj") {
-      if (!section) return <DJAboutMe />;
+      if (!section || section === "about") return <DJAboutMe />;
       if (section === "soundcloud") return <DJSoundcloud />;
       if (section === "soundcloudTracks") return <DJSoundcloudTracks />;
-      if (section === "about") return <DJAboutMe />;
       if (section === "events") return <DJEvents />;
-      if (section === "contact") return <DJContact />;
     }
     if (character === "designer") {
-      if (!section) return <DesignerAboutMe />;
+      if (!section || section === "about") return <DesignerAboutMe />;
       if (section === "portfolio") return <DesignerPortfolio />;
       if (section === "behance") return <DesignerBehance />;
     }
+
     return (
       <div className="nes-container with-title">
         <p className="title">Welcome!</p>
@@ -85,10 +84,10 @@ export default function MainPage() {
     <div style={{ padding: "0.5rem" }}>
       <TopBar onBack={handleBackToSelection} />
 
-      <div style={{ display: "flex",padding: "1rem" }}>
+      <div style={{ display: "flex", padding: "1rem" }}>
         {/* Sidebar */}
         <div>
-          <Sidebar onSelect={setSection} activeSection={section} />
+          <Sidebar onSelect={setSection} activeSection={section} setShowContact={setShowContact} showContact={showContact} />
         </div>
 
         {/* Main Content */}
@@ -96,6 +95,49 @@ export default function MainPage() {
           {renderContent()}
         </div>
       </div>
+
+      {/* NPC Dialogue Overlay */}
+      {showContact && (
+  <div
+    style={{
+      position: "fixed",
+      bottom: "0",
+      right: "0",
+      width: "25%",
+      zIndex: 1000,
+      padding: "0.25rem",
+    }}
+  >
+    <div style={{ position: "relative", paddingTop: "1.5rem" /* reserve space for button */ }}>
+      {/* Close button */}
+      <button
+        onClick={() => setShowContact(false)}
+        style={{
+          position: "absolute",
+          top: "-10rem",
+          right: "2.25rem",
+          background: "red",
+          color: "white",
+          border: "none",
+          borderRadius: "50%",
+          width: "20px",
+          height: "20px",
+          cursor: "pointer",
+          fontWeight: "bold",
+          lineHeight: "18px",
+          textAlign: "center",
+          padding: 0,
+          zIndex: 2000,
+        }}
+      >
+        ×
+      </button>
+
+      <NPCDialogueBar character={character} />
+    </div>
+  </div>
+)}
+
     </div>
   );
 }

@@ -1,6 +1,6 @@
 "use client";
 
-import { events } from "../data/event";
+import { events } from "../../data/event";
 import Badge from "../ui-components/Badge";
 
 export default function DJQuestLog() {

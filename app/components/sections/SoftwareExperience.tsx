@@ -2,7 +2,8 @@
 "use client";
 
 import { useState, useMemo } from "react";
-import { EXPERIENCE, ExperienceItem } from "../data/experience";
+import { EXPERIENCE, ExperienceItem } from "../../data/experience";
+import Badge from "../ui-components/Badge";
 
 function formatDuration(startDate: string, endDate?: string) {
   const start = new Date(startDate);
@@ -170,9 +171,7 @@ export default function ExperienceSection() {
               {exp.tech && exp.tech.length > 0 && (
                 <div style={{ display: "flex", flexWrap: "wrap", gap: "0.5rem", marginTop: "0.5rem" }}>
                   {exp.tech.map((t) => (
-                    <span key={t} className="nes-badge">
-                      <span className="is-primary">{t}</span>
-                    </span>
+                    <Badge key={t} text={t} variant="primary" />
                   ))}
                 </div>
               )}

@@ -1,6 +1,6 @@
 // app/data/quests.ts
 import { Location } from "@/app/enum/location";
-import { Club } from "../../enum/club";
+import { Club } from "../enum/club";
 
 export type Quest = {
   id: string;

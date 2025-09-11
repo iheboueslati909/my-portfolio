@@ -23,8 +23,7 @@ import DJEvents from "./components/sections/DJEvents";
 import NPCDialogueBar from "./components/NPCDialogueBar";
 
 export default function MainPage() {
-  const { character, setCharacter, showContact } = useCharacter();
-  const { setShowContact } = useCharacter();
+  const { character, setCharacter, showContact, setShowContact } = useCharacter();
   const [section, setSection] = useState<string | null>(null);
   const router = useRouter();
 
@@ -95,45 +94,45 @@ export default function MainPage() {
 
       {/* NPC Dialogue Overlay */}
       {showContact && (
-  <div
-    style={{
-      position: "fixed",
-      bottom: "0",
-      right: "0",
-      width: "25%",
-      zIndex: 1000,
-      padding: "0.25rem",
-    }}
-  >
-    <div style={{ position: "relative", paddingTop: "1.5rem" /* reserve space for button */ }}>
-      {/* Close button */}
-      <button
-        onClick={() => setShowContact(false)}
-        style={{
-          position: "absolute",
-          top: "-10rem",
-          right: "2.25rem",
-          background: "red",
-          color: "white",
-          border: "none",
-          borderRadius: "50%",
-          width: "20px",
-          height: "20px",
-          cursor: "pointer",
-          fontWeight: "bold",
-          lineHeight: "18px",
-          textAlign: "center",
-          padding: 0,
-          zIndex: 2000,
-        }}
-      >
-        ×
-      </button>
+        <div
+          style={{
+            position: "fixed",
+            bottom: "0",
+            right: "0",
+            width: "25%",
+            zIndex: 1000,
+            padding: "0.25rem",
+          }}
+        >
+          <div style={{ position: "relative" /* reserve space for button */ }}>
+            {/* Close button */}
+            <button
+              onClick={() => setShowContact(false)}
+              style={{
+                position: "absolute",
+                top: "-0.75rem",
+                right: "0rem",
+                background: "red",
+                color: "white",
+                border: "none",
+                borderRadius: "50%",
+                width: "20px",
+                height: "20px",
+                cursor: "pointer",
+                fontWeight: "bold",
+                lineHeight: "18px",
+                textAlign: "center",
+                padding: 0,
+                zIndex: 2000,
+              }}
+            >
+              ×
+            </button>
 
-      <NPCDialogueBar character={character} />
-    </div>
-  </div>
-)}
+            <NPCDialogueBar character={character} />
+          </div>
+        </div>
+      )}
 
     </div>
   );

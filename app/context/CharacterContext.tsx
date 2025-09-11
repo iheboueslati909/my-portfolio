@@ -2,10 +2,11 @@
 "use client";
 
 import React, { createContext, useContext, useState, ReactNode } from 'react';
+import { CharacterType } from '../types/Character';
 
 interface CharacterContextType {
-  character: string | null;
-  setCharacter: (character: string | null) => void;
+  character: CharacterType;
+  setCharacter: (character: CharacterType) => void;
   showContact: boolean;
   setShowContact: (show: boolean) => void;
 }
@@ -13,7 +14,7 @@ interface CharacterContextType {
 const CharacterContext = createContext<CharacterContextType | undefined>(undefined);
 
 export function CharacterProvider({ children }: { children: ReactNode }) {
-  const [character, setCharacter] = useState<string | null>(null);
+  const [character, setCharacter] = useState<CharacterType>(null);
   const [showContact, setShowContact] = useState(false);
 
   return (

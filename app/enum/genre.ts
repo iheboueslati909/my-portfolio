@@ -8,5 +8,8 @@ export enum Genre {
   Melodic_Techno = "Melodic Techno",
   Raw_Techno = "Raw Techno",
   Hypnotic_Techno = "Hypnotic Techno",
-  Electronic = "Electronic"
+  Electronic = "Electronic",
+  Dub_Techno = "Dub Techno",
+  Downtempo = "Downtempo",
+  Dub = "Dub",
 }

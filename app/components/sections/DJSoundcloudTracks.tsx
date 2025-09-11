@@ -8,7 +8,7 @@ type DJSet = { title: string; cover: string; url: string; genres: string[], plac
 
 const sets: DJSet[] = [
   {
-    title: "Neon Tetra — Fata Morgana",
+    title: "Neon tetra — Fata Morgana",
     cover: "/tracks-covers/fata-morgana.jpg",
     url: "https://soundcloud.com/radiocarro_eargasm/neon-tetra-fata-morgana",
     genres: [Genre.Electronic],
@@ -16,7 +16,7 @@ const sets: DJSet[] = [
 
   },
   {
-    title: "NEON TETRA @RadioCarro Podcast 001",
+    title: "Neon tetra — Revery",
     cover: "/tracks-covers/revery.jpg",
     url: "https://soundcloud.com/pope_me/neon-tetra-revery",
     genres: [Genre.Hypnotic_Techno, Genre.Melodic_Techno],

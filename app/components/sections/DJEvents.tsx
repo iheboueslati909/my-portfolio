@@ -1,47 +1,7 @@
 "use client";
 
-type Quest = {
-  id: string;
-  title: string;
-  date: string;
-  club: string;
-  location: string;
-  playedAs: string;
-  genres: string[];
-  setLink?: string;
-};
-
-const quests: Quest[] = [
-  {
-    id: "1",
-    title: "Outcast @ BSMNT",
-    date: "16-08-2025 | 18h → 04h",
-    club: "BSMNT Club",
-    location: "Gammarth",
-    playedAs: "Neon Tetra",
-    genres: ["Dub Techno", "Hypnotic Techno", "Raw Techno"],
-    setLink: "https://soundcloud.com/inhale-records/neon-tetra-1",
-  },
-  {
-    id: "2",
-    title: "RadioCarro Podcast",
-    date: "05-06-2025",
-    club: "RadioCarro",
-    location: "Tunis",
-    playedAs: "Neon Tetra",
-    genres: ["Melodic Techno", "Ambient"],
-    setLink: "https://soundcloud.com/radiocarro_eargasm/radio",
-  },
-  {
-    id: "3",
-    title: "Trust Gym Session",
-    date: "12-03-2025",
-    club: "Trust Gym",
-    location: "La Marsa",
-    playedAs: "Pope",
-    genres: ["Dub Techno", "Experimental"],
-  },
-];
+import { events } from "../data/event";
+import Badge from "../ui-components/Badge";
 
 export default function DJQuestLog() {
   return (
@@ -49,7 +9,7 @@ export default function DJQuestLog() {
       <h2 className="title text-center">Quest Log</h2>
 
       <div className="flex flex-col gap-4 mt-4">
-        {quests.map((q) => (
+        {events.map((q) => (
           <div key={q.id} className="nes-container is-rounded p-3">
             {/* Title + Date */}
             <div className="flex justify-between items-center mb-2">
@@ -70,13 +30,11 @@ export default function DJQuestLog() {
             {/* Genres */}
             <div className="flex flex-wrap gap-2 mb-2">
               {q.genres.map((g) => (
-                <span key={g} className="nes-badge">
-                  <span className="is-primary">{g}</span>
-                </span>
+                <Badge key={g} text={g} variant="primary" />
               ))}
             </div>
 
-            {/* Set Link */}
+            {/* Set Link (if any) */}
             {q.setLink && (
               <a
                 href={q.setLink}

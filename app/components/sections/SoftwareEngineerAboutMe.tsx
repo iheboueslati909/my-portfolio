@@ -14,7 +14,7 @@ export default function SoftwareEngineerAboutMe() {
           marginBottom: "2rem",
         }}
       >
-        “I build reliable systems that scale — and sound systems that inspire.”
+        “I build reliable systems that scale.”
       </p>
 
       {/* Character inspection container */}

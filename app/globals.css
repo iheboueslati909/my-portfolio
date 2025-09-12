@@ -105,7 +105,7 @@ body {
 }
 
 .pixel-blink {
-  animation: blink 5s infinite steps(1);
+  animation: blink 4s infinite steps(1);
 }
 
 @keyframes blink {

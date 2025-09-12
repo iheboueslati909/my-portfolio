@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { MiniContactForm } from "./MiniContactForm";
 
 interface NPCDialogueBarProps {
-  character: "software" | "dj" | "designer";
+  character: "software" | "dj" | "designer" | "locked";
 }
 
 export default function NPCDialogueBar({ character }: NPCDialogueBarProps) {
@@ -13,16 +13,21 @@ export default function NPCDialogueBar({ character }: NPCDialogueBarProps) {
   const characterButtons = {
     software: [
       { label: "LinkedIn", url: "https://www.linkedin.com/in/iheboueslati", type: "link", style: "is-success" },
-      { label: "GitHub", url: "https://github.com/ihebouesalti909", type: "link", style: "is-warning" },
+      { label: "GitHub", url: "https://github.com/iheboueslati909", type: "link", style: "is-warning" },
       { label: "Contact Form", type: "button", action: () => setMode("form"), style: "is-primary" },
     ],
     dj: [
-      { label: "Instagram", url: "https://instagram.com/iheboeuslati_", type: "link", style: "is-error" },
-      { label: "SoundCloud", url: "https://soundcloud.com/me_pope", type: "link", style: "is-warning" },
+      { label: "Instagram", url: "https://instagram.com/iheboueslati_", type: "link", style: "is-error" },
+      { label: "SoundCloud", url: "https://soundcloud.com/pope_me", type: "link", style: "is-warning" },
       { label: "Contact Form", type: "button", action: () => setMode("form"), style: "is-primary" },
     ],
     designer: [
       { label: "Behance", url: "https://www.behance.net/your-profile", type: "link", style: "is-success" },
+      { label: "Contact Form", type: "button", action: () => setMode("form"), style: "is-primary" },
+      { label: "Instagram", url: "https://instagram.com/iheboueslati_", type: "link", style: "is-error" },
+    ],
+    locked: [
+      { label: "Select Character", url: "/character-select", type: "link", style: "is-disabled" },
       { label: "Contact Form", type: "button", action: () => setMode("form"), style: "is-primary" },
     ],
   };
@@ -99,7 +104,7 @@ export default function NPCDialogueBar({ character }: NPCDialogueBarProps) {
                   key={btn.label}
                   className={`nes-btn ${btn.style} nes-btn-rpg`}
                   style={{ fontSize: "0.8rem", padding: "0.25rem" }}
-                  onClick={btn.action}
+                   onClick={btn.action}
                 >
                   {btn.label}
                 </button>

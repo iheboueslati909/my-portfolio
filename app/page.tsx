@@ -71,6 +71,7 @@ export default function MainPage() {
   };
 
   return (
+    <div>
         <Fade show={!!character}>
     <div style={{ padding: "0.5rem" }}>
       {character && <TopBar onBack={handleBackToSelection} />}
@@ -90,7 +91,11 @@ export default function MainPage() {
         <div style={{ flex: 1, paddingLeft: "1rem" }}>{renderContent()}</div>
       </div>
 
-      {/* NPC Dialogue Overlay */}
+   
+    </div>
+    
+</Fade>
+   {/* NPC Dialogue Overlay */}
       {showContact && (
         <div
           style={{
@@ -131,8 +136,6 @@ export default function MainPage() {
           </div>
         </div>
       )}
-    </div>
-    
-</Fade>
+</div>
   );
 }

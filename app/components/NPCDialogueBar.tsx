@@ -12,9 +12,9 @@ export default function NPCDialogueBar({ character }: NPCDialogueBarProps) {
   // Define buttons per character
   const characterButtons = {
     software: [
-      { label: "LinkedIn", url: "https://www.linkedin.com/in/iheboueslati", type: "link", style: "is-success" },
+      { label: "LinkedIn", url: "https://www.linkedin.com/in/iheboueslati", type: "link", style: "is-primary" },
       { label: "GitHub", url: "https://github.com/iheboueslati909", type: "link", style: "is-warning" },
-      { label: "Email me", type: "button", action: () => setMode("form"), style: "is-primary" },
+      { label: "Email me", type: "button", action: () => setMode("form"), style: "is-success" },
     ],
     dj: [
       { label: "Instagram", url: "https://instagram.com/iheboueslati_", type: "link", style: "is-error" },

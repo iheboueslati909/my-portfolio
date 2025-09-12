@@ -21,6 +21,7 @@ import DJAboutMe from "./components/sections/DJAboutMe";
 import DJEvents from "./components/sections/DJEvents";
 import NPCDialogueBar from "./components/NPCDialogueBar";
 import DesignerServices from "./components/sections/DesignerServices";
+import Fade from "./components/ui-components/Fade";
 
 export default function MainPage() {
   const { character, setCharacter, showContact, setShowContact } = useCharacter();
@@ -31,7 +32,7 @@ export default function MainPage() {
     if (!character) {
       navigateWithFade("/character-select");
     } else {
-    if (!section && character) setSection("about");
+      if (!section && character) setSection("about");
     }
   }, [character, section, navigateWithFade]);
 
@@ -70,12 +71,13 @@ export default function MainPage() {
   };
 
   return (
+        <Fade show={!!character}>
     <div style={{ padding: "0.5rem" }}>
       {character && <TopBar onBack={handleBackToSelection} />}
 
       <div style={{ display: "flex", padding: "1rem" }}>
         {/* Sidebar */}
-   {character &&     <div>
+        {character && <div>
           <Sidebar
             onSelect={setSection}
             activeSection={section}
@@ -125,10 +127,12 @@ export default function MainPage() {
               ×
             </button>
 
-            {character &&<NPCDialogueBar character={character} />}
+            {character && <NPCDialogueBar character={character} />}
           </div>
         </div>
       )}
     </div>
+    
+</Fade>
   );
 }

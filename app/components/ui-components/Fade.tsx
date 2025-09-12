@@ -9,7 +9,7 @@ interface FadeProps {
   onExited?: () => void;
 }
 
-export default function Fade({ show, children, duration = 400, onExited }: FadeProps) {
+export default function Fade({ show, children, duration = 1000, onExited }: FadeProps) {
   const [render, setRender] = useState(show);
 
   useEffect(() => {

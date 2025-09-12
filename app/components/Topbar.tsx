@@ -26,18 +26,18 @@ export default function TopBar({ onBack }: TopBarProps) {
 
   return (
     <header
-      className="relative flex justify-between items-center overflow-hidden"
+      className="nes-container is-dark relative flex justify-between items-center overflow-hidden"
       style={{
         height: "80px",
         border: "4px solid #212529",
         boxShadow: "0 4px 0 0 #212529",
       }}
     >
-      <img
-        src="/topbar-bg-gif.gif"
+      {/* <img
+        src="/sky2.gif"
         alt="Topbar Background"
         className="absolute w-full h-full object-cover"
-      />
+      /> */}
 
       <div
         className="relative flex justify-between w-full items-center"

@@ -23,9 +23,9 @@ export default function CharacterSelect() {
   };
 
   const characters = [
-    { id : "software", label: "Software Engineer", image: "/avatars/engineer-avatar.png", unlocked: true },
-    { id: "dj", label: "DJ / Producer", image: "/avatars/dj.png", unlocked: true },
-    { id: "designer", label: "Designer", image: "/avatars/engineer-avatar.png", unlocked: true },
+    { id : "software", label: "Software Engineer", image: "/characters/software-head.png", unlocked: true },
+    { id: "dj", label: "DJ / Producer", image: "/characters/dj-head.png", unlocked: true },
+    { id: "designer", label: "Graphic Designer", image: "/characters/designer-head.png", unlocked: true },
     { id: "locked", label: "Locked Character", image: "/avatars/locked-character.png", unlocked: false },
   ];
 

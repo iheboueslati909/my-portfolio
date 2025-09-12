@@ -16,9 +16,9 @@ export default function Sidebar({ onSelect, activeSection, setShowContact, showC
     character === "software"
       ? [
         { id: "about", label: "About Me" },
-        { id: "projects", label: "Projects" },
-        { id: "stack", label: "stack" },
         { id: "experience", label: "experience" },
+        { id: "stack", label: "stack" },
+        { id: "projects", label: "Projects" },
         { id: "contact", label: "Contact" },
       ]
       : character === "dj"

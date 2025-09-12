@@ -4,7 +4,7 @@ export default function SoftwareProjects() {
   return (
 
 <section className="nes-container with-title" style={{ padding: "1rem" }}>
-  <h2 className="title">Projects</h2>
+  <h2 className="title retro-title-green">Projects</h2>
 
   <div className="nes-container is-rounded" style={{ marginBottom: "1rem" }}>
     <h3>Festival & Events Ticketing Platform</h3>

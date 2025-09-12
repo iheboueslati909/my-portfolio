@@ -61,6 +61,8 @@ export default function DJSoundcloud() {
   }, []);
 
   return(
+        <section className="nes-container with-title" style={{ padding: "1rem" }}>
+      <h2 className="title retro-title-blue" style={{ textAlign: "center" }}>SETS</h2>
       <div className="flex flex-col gap-4 ">
         {sets.map((set, i) => (
           <div key={i} className="nes-container is-rounded flex items-center gap-4">
@@ -116,5 +118,6 @@ export default function DJSoundcloud() {
           </div>
         ))}
       </div>
+      </section>
     );
 }

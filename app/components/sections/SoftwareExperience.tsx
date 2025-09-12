@@ -63,7 +63,7 @@ export default function ExperienceSection() {
 
   return (
     <section className="nes-container with-title" style={{ padding: "1rem" }}>
-      <h2 className="title" style={{ textAlign: "center" }}>Experience</h2>
+      <h2 className="title retro-title-green" style={{ textAlign: "center" }}>Experience</h2>
 
       {/* Filter controls */}
       <div

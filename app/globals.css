@@ -112,3 +112,168 @@ body {
   0%, 92%, 100% { opacity: 0; }
   93%, 97% { opacity: 1; }
 }
+
+
+
+.character-card {
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  transform-origin: center center; /* Ensures scaling from the center */
+  position: relative; /* Needed for the pseudo-element */
+  overflow: hidden; /* Ensures any overflow from the hover effect is clipped */
+}
+
+.character-card:not(.opacity-50):hover {
+  transform: scale(1.08); /* Makes the card slightly larger */
+  box-shadow: 0 0 15px 5px rgba(0, 174, 255, 0.7); /* Retro glow effect */
+  z-index: 10; /* Ensures the hovered card is on top of siblings */
+}
+
+/* Retro hover effect for the background */
+.character-card-hover-effect {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    45deg,
+    rgba(255, 255, 0, 0.2) 0%,
+    rgba(0, 255, 255, 0.2) 50%,
+    rgba(255, 0, 255, 0.2) 100%
+  );
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
+  transform: translateY(100%); /* Start off-screen */
+}
+
+.character-card:not(.opacity-50):hover .character-card-hover-effect {
+  opacity: 1;
+  transform: translateY(0%); /* Slide in from bottom */
+}
+
+/* Optional: Add a subtle pulse for the select button on hover */
+.character-card:not(.opacity-50):hover .nes-btn.is-primary {
+  animation: pulse-button 0.5s infinite alternate;
+}
+
+@keyframes pulse-button {
+  from {
+    transform: scale(1);
+    filter: brightness(1);
+  }
+  to {
+    transform: scale(1.05);
+    filter: brightness(1.2);
+  }
+}
+
+/* .button-pulse:  {
+  animation: pulse-button 0.5s infinite alternate;
+} */
+
+
+
+
+.shine-effect-container {
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.shine-effect-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -150%;
+  width: 100%;
+  height: 100%;
+  transform: skewX(-25deg);
+  background: transparent;
+  box-shadow: 
+    -10px 0 0 1px rgba(255, 255, 255, 0.4),
+    -20px 0 0 1px rgba(255, 255, 255, 0.3),
+    -30px 0 0 1px rgba(255, 255, 255, 0.2),
+    -40px 0 0 1px rgba(255, 255, 255, 0.1);
+  animation: retro-shine 3s infinite ease-in-out;
+}
+
+@keyframes retro-shine {
+  0% {
+    left: -150%;
+  }
+  100% {
+    left: 150%;
+  }
+}
+
+
+.retro-title-red {
+  display: inline-block;
+  font-family: 'Press Start 2P', cursive; /* or any pixel font */
+  font-size: 2rem;
+  padding: 0.5rem 1rem;
+  color: #fff;
+  background: linear-gradient(135deg, #ff004c 0%, #ff77a9 100%);
+  border: 4px solid #212529;
+  box-shadow: 4px 4px 0 #212529;
+  text-transform: uppercase;
+}
+
+.retro-title-orange {
+  display: inline-block;
+  font-family: 'Press Start 2P', cursive; /* or any pixel font */
+  font-size: 2rem;
+  padding: 0.5rem 1rem;
+  color: #fff;
+  background: linear-gradient(135deg, #ff6600 0%, #ffdf77 100%);
+  border: 4px solid #212529;
+  box-shadow: 4px 4px 0 #212529;
+  text-transform: uppercase;
+}
+
+.retro-title-blue {
+  display: inline-block;
+  font-family: 'Press Start 2P', cursive; /* or any pixel font */
+  font-size: 2rem;
+  padding: 0.5rem 1rem;
+  color: #fff;
+  background: linear-gradient(135deg, #00b7ff 0%, #8077ff 100%);
+  border: 4px solid #212529;
+  box-shadow: 4px 4px 0 #212529;
+  text-transform: uppercase;
+}
+
+.retro-title-green {
+  display: inline-block;
+  font-family: 'Press Start 2P', cursive; /* or any pixel font */
+  font-size: 2rem;
+  padding: 0.5rem 1rem;
+  color: #fff;
+  background: linear-gradient(135deg, #00ff4c 0%, #13a500 100%);
+  border: 4px solid #212529;
+  box-shadow: 4px 4px 0 #212529;
+  text-transform: uppercase;
+}
+
+.retro-gradient {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  background: linear-gradient(90deg, #00f0ff 0%, #ff00f7 50%, #ffea00 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  image-rendering: pixelated;
+  display: inline-block;
+}
+
+.retro-glow {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 1.2rem;
+  color: #39ff14;
+  text-shadow: 
+    0 0 4px #39ff14,
+    0 0 8px #39ff14,
+    0 0 12px #39ff14,
+    2px 2px 0 #212529; /* pixel offset shadow */
+  text-transform: uppercase;
+}

@@ -12,7 +12,7 @@ const sets: DJSet[] = [
     cover: "/tracks-covers/fata-morgana.jpg",
     url: "https://soundcloud.com/radiocarro_eargasm/neon-tetra-fata-morgana",
     genres: [Genre.Electronic],
-    places: [PerformancePlace.Bedroom],
+    places: [],
 
   },
   {
@@ -20,7 +20,7 @@ const sets: DJSet[] = [
     cover: "/tracks-covers/revery.jpg",
     url: "https://soundcloud.com/pope_me/neon-tetra-revery",
     genres: [Genre.Hypnotic_Techno, Genre.Melodic_Techno],
-    places: [PerformancePlace.Bedroom]
+    places: []
   },
 ];
 
@@ -61,6 +61,8 @@ export default function DJSoundcloudTracks() {
   }, []);
 
   return (
+            <section className="nes-container with-title" style={{ padding: "1rem" }}>
+      <h2 className="title retro-title-blue" style={{ textAlign: "center" }}>TRACKS</h2>
     <div className="flex flex-col gap-4 ">
       {sets.map((set, i) => (
         <div key={i} className="nes-container is-rounded flex items-center gap-4">
@@ -116,5 +118,6 @@ export default function DJSoundcloudTracks() {
         </div>
       ))}
     </div>
+    </section>
   );
 }

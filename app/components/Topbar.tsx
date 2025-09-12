@@ -43,9 +43,9 @@ export default function TopBar({ onBack }: TopBarProps) {
         className="relative flex justify-between w-full items-center"
         style={{ padding: "0 1rem" }}
       >
-        <h1 className="nes-text is-primary text-xl">My Retro Portfolio</h1>
+        <h1 className="nes-text text-xl retro-gradient" style={{color:"white"}}>My Retro Portfolio</h1>
 
-        <div className="flex items-center space-x-4">
+        <div className="flex items-center space-x-4c ">
           {character && thumbnails[character] && (
             <div
               className="relative w-12 h-12"
@@ -64,12 +64,13 @@ export default function TopBar({ onBack }: TopBarProps) {
                 alt={`${character} blink`}
                 className=" inset-0 w-full h-full pixel-blink"
               />
-            </div>
+            </div >
           )}
 
-          <button className="nes-btn is-error" onClick={onBack}>
-            Change
+          <button className="nes-btn is-error shine-effect-container" onClick={onBack}>
+            Change character
           </button>
+
         </div>
       </div>
     </header>

@@ -39,8 +39,8 @@ export default function Sidebar({ onSelect, activeSection, setShowContact, showC
           : [];
 
   return (
-    <div className="nes-container with-title p-4">
-      <p className="title">Menu</p>
+    <div className="nes-container with-title p-4" style={{ padding: "1rem" }}>
+      <p className="title retro-title-orange" >Menu</p>
       <div className="flex flex-col space-y-3">
         {menuItems.map((item) => (
           <button

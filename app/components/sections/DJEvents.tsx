@@ -6,7 +6,7 @@ import Badge from "../ui-components/Badge";
 export default function DJQuestLog() {
   return (
     <section className="nes-container with-title" style={{ padding: "1rem" }}>
-      <h2 className="title text-center">Quest Log</h2>
+      <h2 className="title text-center retro-title-green">Quest Log</h2>
 
       <div className="flex flex-col gap-4 mt-4">
         {events.map((q) => (

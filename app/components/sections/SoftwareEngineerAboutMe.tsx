@@ -4,7 +4,7 @@
 export default function SoftwareEngineerAboutMe() {
   return (
     <section className="nes-container with-title" style={{ padding: "1rem" }}>
-      <h2 className="title" style={{ textAlign: "center" }}>About Me</h2>
+      <h2 className="title retro-title-red" style={{ textAlign: "center" }}>About Me</h2>
 
       {/* One-liner philosophy */}
       <p

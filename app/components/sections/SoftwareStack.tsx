@@ -1,7 +1,7 @@
 export default function SoftwareStack() {
     return(
         <section className="nes-container with-title" style={{ padding: "1rem" }}>
-  <h2 className="title">Technologies stack</h2>
+  <h2 className="title retro-title-blue">Technologies stack</h2>
 
   <h3>Languages, Frameworks & Libraries</h3>
   <ul className="nes-list is-disc">

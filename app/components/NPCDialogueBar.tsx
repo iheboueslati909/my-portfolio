@@ -14,21 +14,21 @@ export default function NPCDialogueBar({ character }: NPCDialogueBarProps) {
     software: [
       { label: "LinkedIn", url: "https://www.linkedin.com/in/iheboueslati", type: "link", style: "is-success" },
       { label: "GitHub", url: "https://github.com/iheboueslati909", type: "link", style: "is-warning" },
-      { label: "Contact Form", type: "button", action: () => setMode("form"), style: "is-primary" },
+      { label: "Email me", type: "button", action: () => setMode("form"), style: "is-primary" },
     ],
     dj: [
       { label: "Instagram", url: "https://instagram.com/iheboueslati_", type: "link", style: "is-error" },
       { label: "SoundCloud", url: "https://soundcloud.com/pope_me", type: "link", style: "is-warning" },
-      { label: "Contact Form", type: "button", action: () => setMode("form"), style: "is-primary" },
+      { label: "Email me", type: "button", action: () => setMode("form"), style: "is-primary" },
     ],
     designer: [
       { label: "Behance", url: "https://www.behance.net/your-profile", type: "link", style: "is-success" },
-      { label: "Contact Form", type: "button", action: () => setMode("form"), style: "is-primary" },
+      { label: "Email me", type: "button", action: () => setMode("form"), style: "is-primary" },
       { label: "Instagram", url: "https://instagram.com/iheboueslati_", type: "link", style: "is-error" },
     ],
     locked: [
       { label: "Select Character", url: "/character-select", type: "link", style: "is-disabled" },
-      { label: "Contact Form", type: "button", action: () => setMode("form"), style: "is-primary" },
+      { label: "Email me", type: "button", action: () => setMode("form"), style: "is-primary" },
     ],
   };
 
@@ -114,7 +114,7 @@ export default function NPCDialogueBar({ character }: NPCDialogueBarProps) {
         </>
       )}
 
-      {/* Contact Form */}
+      {/* Email me */}
       {mode === "form" && <MiniContactForm onBack={() => setMode("menu")} />}
     </div>
   );

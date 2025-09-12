@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useCharacter } from "../context/CharacterContext";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
+import { CharacterType } from "../types/Character";
 
 export default function CharacterSelect() {
   const { setCharacter } = useCharacter();
@@ -16,14 +17,14 @@ export default function CharacterSelect() {
     }, []);
   
 
-  const selectCharacter = (character: string) => {
+  const selectCharacter = (character: CharacterType) => {
     setCharacter(character);
     router.push("/");
   };
 
   const characters = [
-    { id: "software", label: "Software Engineer", image: "/avatars/engineer-avatar.png", unlocked: true },
-    { id: "dj", label: "DJ / Producer", image: "/avatars/engineer-avatar.png", unlocked: true },
+    { id : "software", label: "Software Engineer", image: "/avatars/engineer-avatar.png", unlocked: true },
+    { id: "dj", label: "DJ / Producer", image: "/avatars/dj.png", unlocked: true },
     { id: "designer", label: "Designer", image: "/avatars/engineer-avatar.png", unlocked: true },
     { id: "locked", label: "Locked Character", image: "/avatars/locked-character.png", unlocked: false },
   ];
@@ -56,7 +57,7 @@ export default function CharacterSelect() {
               {character.unlocked ? (
                 <button
                   className="nes-btn is-primary mt-auto text-xs px-2 py-1"
-                  onClick={() => selectCharacter(character.id)}
+                  onClick={() => selectCharacter(character.id as CharacterType)}
                 >
                   Select
                 </button>

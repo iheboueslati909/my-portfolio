@@ -59,7 +59,7 @@ export default function DJAboutMe() {
         {/* Right: Pixel-style avatar */}
         <div style={{ flex: "0 0 200px", textAlign: "center" }}>
           <img
-            src="/images/dj-avatar.png"
+            src="/characters/dj.png"
             alt="Neon Tetra pixel art"
             style={{
               width: "100%",

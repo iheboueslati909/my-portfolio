@@ -45,14 +45,14 @@ export default function SoftwareEngineerAboutMe() {
             <li><strong>System Design:</strong> Scalable architectures & microservices</li>
             <li><strong>Database Mastery:</strong> SQL & NoSQL, data modeling</li>
             <li><strong>Problem Solving:</strong> Debugging and algorithmic thinking</li>
-            <li><strong>Creativity:</strong> Side projects, visuals, and music production</li>
+            <li><strong>Creativity:</strong> Side projects</li>
           </ul>
         </div>
 
         {/* Right: Pixelated full-body image */}
         <div style={{ flex: "0 0 200px", textAlign: "center" }}>
           <img
-            src="/images/pixelated-character.png"
+            src="/characters/software.png"
             alt="Iheb Oueslati pixel art"
             style={{
               width: "100%",

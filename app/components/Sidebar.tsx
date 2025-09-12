@@ -40,11 +40,12 @@ export default function Sidebar({ onSelect, activeSection, setShowContact, showC
 
   return (
     <div className="nes-container with-title p-4" style={{ padding: "1rem" }}>
-      <p className="title retro-title-orange" >Menu</p>
-      <div className="flex flex-col space-y-3">
+      <p className="title retro-title-orange"  >Menu</p>
+      <div  className="flex flex-col space-y-3" >
         {menuItems.map((item) => (
           <button
             key={item.id}
+            style={{ marginBottom: "0.5rem" }}
             className={`nes-btn w-full ${activeSection === item.id ? "is-success" : "is-primary"
               }`}
             onClick={() => {

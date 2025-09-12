@@ -30,10 +30,10 @@ export default function DesignerAboutMe() {
         <div style={{ flex: 1 }}>
           <h3 style={{ textAlign: "center" }}>🎨 Character Sheet</h3>
           <ul className="nes-list is-disc">
-            <li><strong>Name:</strong> Pixel Crafter</li>
-            <li><strong>Specialties:</strong> Motion Graphics, 3D Flyers, Visual Identities</li>
+            <li><strong>Name:</strong> Iheb Oueslati</li>
+            <li><strong>Specialties:</strong> Motion Graphics, 3D Posters, Visual Identities</li>
             <li>
-              <strong>Tools of Choice:</strong> Blender, After Effects, Photoshop
+              <strong>Tools of Choice:</strong> Blender, Photoshop
             </li>
             <li>
               <strong>Focus:</strong> Visuals for Music & Techno Events  

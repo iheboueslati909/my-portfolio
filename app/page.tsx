@@ -13,7 +13,7 @@ import SoftwareResume from "./components/sections/SoftwareResume";
 import SoftwareEngineerAboutMe from "./components/sections/SoftwareEngineerAboutMe";
 import DJSoundcloud from "./components/sections/DJSoundcloud";
 import DesignerAboutMe from "./components/sections/DesignerAboutMe";
-import DesignerPortfolio from "./components/sections/DesignerPortfolio";
+// import DesignerPortfolio from "./components/sections/DesignerPortfolio";
 import DesignerBehance from "./components/sections/DesignerBehance";
 import SoftwareProjects from "./components/sections/SoftwareProjects";
 import SoftwareStack from "./components/sections/SoftwareStack";
@@ -21,6 +21,7 @@ import DJSoundcloudTracks from "./components/sections/DJSoundcloudTracks";
 import DJAboutMe from "./components/sections/DJAboutMe";
 import DJEvents from "./components/sections/DJEvents";
 import NPCDialogueBar from "./components/NPCDialogueBar";
+import DesignerServices from "./components/sections/DesignerServices";
 
 export default function MainPage() {
   const { character, setCharacter, showContact, setShowContact } = useCharacter();
@@ -59,8 +60,9 @@ export default function MainPage() {
     }
     if (character === "designer") {
       if (!section || section === "about") return <DesignerAboutMe />;
-      if (section === "portfolio") return <DesignerPortfolio />;
+      // if (section === "portfolio") return <DesignerPortfolio />;
       if (section === "behance") return <DesignerBehance />;
+      if (section === "services") return <DesignerServices />;
     }
 
     return (

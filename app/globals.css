@@ -103,3 +103,12 @@ body {
   filter: drop-shadow(1px 1px 0 #000);
   transition: transform 0.1s;
 }
+
+.pixel-blink {
+  animation: blink 5s infinite steps(1);
+}
+
+@keyframes blink {
+  0%, 92%, 100% { opacity: 0; } /* Hidden most of the time */
+  93%, 97% { opacity: 1; }      /* Show blink frame briefly */
+}

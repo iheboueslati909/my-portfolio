@@ -17,6 +17,7 @@ export function CharacterProvider({ children }: { children: ReactNode }) {
   const [character, setCharacter] = useState<CharacterType>(null);
   const [showContact, setShowContact] = useState(false);
 
+
   return (
     <CharacterContext.Provider value={{ character, setCharacter, showContact, setShowContact }}>
       {children}

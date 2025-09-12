@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { useCharacter } from "./context/CharacterContext";
-import { useRouter } from "next/navigation";
+import { useFadeNav } from "./provider/TransitionProvider";
 
 import TopBar from "./components/Topbar";
 import Sidebar from "./components/Sidebar";
@@ -13,7 +13,6 @@ import SoftwareResume from "./components/sections/SoftwareResume";
 import SoftwareEngineerAboutMe from "./components/sections/SoftwareEngineerAboutMe";
 import DJSoundcloud from "./components/sections/DJSoundcloud";
 import DesignerAboutMe from "./components/sections/DesignerAboutMe";
-// import DesignerPortfolio from "./components/sections/DesignerPortfolio";
 import DesignerBehance from "./components/sections/DesignerBehance";
 import SoftwareProjects from "./components/sections/SoftwareProjects";
 import SoftwareStack from "./components/sections/SoftwareStack";
@@ -26,23 +25,23 @@ import DesignerServices from "./components/sections/DesignerServices";
 export default function MainPage() {
   const { character, setCharacter, showContact, setShowContact } = useCharacter();
   const [section, setSection] = useState<string | null>(null);
-  const router = useRouter();
+  const { navigateWithFade } = useFadeNav();
 
   useEffect(() => {
-    if (!character) router.push("/character-select");
-    if (!section) setSection("about");
-  }, [character, section, router]);
+    if (!character) {
+      navigateWithFade("/character-select");
+    } else {
+    if (!section && character) setSection("about");
+    }
+  }, [character, section, navigateWithFade]);
 
-  if (!character) {
-    return (
-      <div style={{ display: "flex", justifyContent: "center", alignItems: "center", minHeight: "100vh" }}>
-        <div className="nes-container is-rounded with-title">
-          <h2 className="title">No character selected</h2>
-          <p>Redirecting to character selection...</p>
-        </div>
-      </div>
-    );
-  }
+  // useEffect(() => {
+  //   if (!character) {
+  //     navigateWithFade("/character-select");
+  //   } else {
+  //   if (!section && character) setSection("about");
+  //   }
+  // }, [ section,character]);
 
   const renderContent = () => {
     if (character === "software") {
@@ -60,38 +59,33 @@ export default function MainPage() {
     }
     if (character === "designer") {
       if (!section || section === "about") return <DesignerAboutMe />;
-      // if (section === "portfolio") return <DesignerPortfolio />;
       if (section === "behance") return <DesignerBehance />;
       if (section === "services") return <DesignerServices />;
     }
 
-    return (
-      <div className="nes-container with-title">
-        <p className="title">Welcome!</p>
-        <p>Select a section from the menu!</p>
-      </div>
-    );
   };
 
   const handleBackToSelection = () => {
     setCharacter(null);
-    router.push("/character-select");
   };
 
   return (
     <div style={{ padding: "0.5rem" }}>
-      <TopBar onBack={handleBackToSelection} />
+      {character && <TopBar onBack={handleBackToSelection} />}
 
       <div style={{ display: "flex", padding: "1rem" }}>
         {/* Sidebar */}
-        <div>
-          <Sidebar onSelect={setSection} activeSection={section} setShowContact={setShowContact} showContact={showContact} />
-        </div>
+   {character &&     <div>
+          <Sidebar
+            onSelect={setSection}
+            activeSection={section}
+            setShowContact={setShowContact}
+            showContact={showContact}
+          />
+        </div>}
 
         {/* Main Content */}
-        <div style={{ flex: 1, paddingLeft: "1rem" }}>
-          {renderContent()}
-        </div>
+        <div style={{ flex: 1, paddingLeft: "1rem" }}>{renderContent()}</div>
       </div>
 
       {/* NPC Dialogue Overlay */}
@@ -106,7 +100,7 @@ export default function MainPage() {
             padding: "0.25rem",
           }}
         >
-          <div style={{ position: "relative" /* reserve space for button */ }}>
+          <div style={{ position: "relative" }}>
             {/* Close button */}
             <button
               onClick={() => setShowContact(false)}
@@ -131,11 +125,10 @@ export default function MainPage() {
               ×
             </button>
 
-            <NPCDialogueBar character={character} />
+            {character &&<NPCDialogueBar character={character} />}
           </div>
         </div>
       )}
-
     </div>
   );
 }

@@ -1,13 +1,15 @@
 "use client";
 
 import { useCharacter } from "../context/CharacterContext";
+import { useFadeNav } from "../provider/TransitionProvider";
 
 interface TopBarProps {
-  onBack?: () => void;
+  onBack?: () => void; // still optional, but we won’t need router.push here
 }
 
 export default function TopBar({ onBack }: TopBarProps) {
   const { character } = useCharacter();
+  const { navigateWithFade } = useFadeNav();
 
   const thumbnails: Record<string, { normal: string; blink: string }> = {
     software: {
@@ -24,6 +26,13 @@ export default function TopBar({ onBack }: TopBarProps) {
     },
   };
 
+  const handleBack = () => {
+    if (onBack) {
+      onBack(); // still let parent clear character
+    }
+    navigateWithFade("/character-select"); // fade out, then go to selection
+  };
+
   return (
     <header
       className="nes-container is-dark relative flex justify-between items-center overflow-hidden"
@@ -33,44 +42,41 @@ export default function TopBar({ onBack }: TopBarProps) {
         boxShadow: "0 4px 0 0 #212529",
       }}
     >
-      {/* <img
-        src="/sky2.gif"
-        alt="Topbar Background"
-        className="absolute w-full h-full object-cover"
-      /> */}
-
       <div
         className="relative flex justify-between w-full items-center"
         style={{ padding: "0 1rem" }}
       >
-        <h1 className="nes-text text-xl retro-gradient" style={{color:"white"}}>My Retro Portfolio</h1>
+        <h1 className="nes-text text-xl retro-gradient" style={{ color: "white" }}>
+          My Retro Portfolio
+        </h1>
 
-        <div className="flex items-center space-x-4c ">
+        <div className="flex items-center space-x-4">
           {character && thumbnails[character] && (
             <div
               className="relative w-12 h-12"
               style={{ imageRendering: "pixelated" }}
             >
-              {/* Normal image always visible */}
+              {/* Normal image */}
               <img
                 src={thumbnails[character].normal}
                 alt={`${character} normal`}
                 className="absolute inset-0 w-full h-full"
               />
-
-              {/* Blink frame overlays occasionally */}
+              {/* Blink overlay */}
               <img
                 src={thumbnails[character].blink}
                 alt={`${character} blink`}
-                className=" inset-0 w-full h-full pixel-blink"
+                className="inset-0 w-full h-full pixel-blink"
               />
-            </div >
+            </div>
           )}
 
-          <button className="nes-btn is-error shine-effect-container" onClick={onBack}>
+          <button
+            className="nes-btn is-error shine-effect-container"
+            onClick={handleBack}
+          >
             Change character
           </button>
-
         </div>
       </div>
     </header>

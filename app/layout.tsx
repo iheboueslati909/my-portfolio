@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import "nes.css/css/nes.min.css";
 import "./globals.css";
 import { CharacterProvider } from "./context/CharacterContext";
+import { TransitionProvider } from "./provider/TransitionProvider";
 
 export const metadata: Metadata = {
   title: "My Retro Portfolio",
@@ -19,7 +20,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         backgroundAttachment: 'fixed',
         backgroundRepeat: 'no-repeat'
       }}>
-        <CharacterProvider>{children}</CharacterProvider>
+        <CharacterProvider>
+          <TransitionProvider>
+            {children}
+          </TransitionProvider>
+        </CharacterProvider>
       </body>
     </html>
   );

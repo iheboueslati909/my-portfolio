@@ -28,7 +28,7 @@ export default function DJQuestLog() {
             </p>
 
             {/* Genres */}
-            <div className="flex flex-wrap gap-2 mb-2">
+            <div className="flex flex-wrap gap-2 mb-2" style={{  gap: "0.5rem" }}>
               {q.genres.map((g) => (
                 <Badge key={g} text={g} variant="primary" />
               ))}

@@ -75,7 +75,7 @@ export default function DJSoundcloudTracks() {
 
           <div className="flex flex-col flex-1 ">
             <h3>{set.title}</h3>
-            <div className="flex flex-wrap gap-2" style={{ padding: "0.25rem" }}>
+            <div className="flex flex-wrap gap-2" style={{ padding: "0.25rem", gap: "0.5rem" }}>
                 {set.genres.map((b) => (
                   <Badge key={b} text={b} variant="primary" />
                 ))}

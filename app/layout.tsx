@@ -13,11 +13,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <body style={{
-  backgroundImage: "url('/retro.jpg')",
-  backgroundSize: 'cover',
-  backgroundPosition: 'center',
-  backgroundAttachment: 'fixed',
-  backgroundRepeat: 'no-repeat'}}>
+        backgroundImage: "url('/wallpaper3.jpg ')",
+        backgroundSize: 'cover',
+        backgroundPosition: 'background',
+        backgroundAttachment: 'fixed',
+        backgroundRepeat: 'no-repeat'
+      }}>
         <CharacterProvider>{children}</CharacterProvider>
       </body>
     </html>

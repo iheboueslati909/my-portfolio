@@ -84,11 +84,11 @@ body {
 
 
 /* Typewriter cursor blinking */
-@keyframes blink {
+@keyframes blink-dialogue {
   50% { border-color: transparent; }
 }
 .npc-dialogue p {
-  animation: blink 0.75s step-end infinite;
+  animation: blink-dialogue 0.75s step-end infinite;
 }
 
 /* Fade-in dialogue box */
@@ -109,6 +109,6 @@ body {
 }
 
 @keyframes blink {
-  0%, 92%, 100% { opacity: 0; } /* Hidden most of the time */
-  93%, 97% { opacity: 1; }      /* Show blink frame briefly */
+  0%, 92%, 100% { opacity: 0; }
+  93%, 97% { opacity: 1; }
 }

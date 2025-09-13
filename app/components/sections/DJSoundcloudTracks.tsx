@@ -61,63 +61,82 @@ export default function DJSoundcloudTracks() {
   }, []);
 
   return (
-            <section className="nes-container with-title" style={{ padding: "1rem" }}>
-      <h2 className="title retro-title-blue" style={{ textAlign: "center" }}>TRACKS</h2>
-    <div className="flex flex-col gap-4 ">
-      {sets.map((set, i) => (
-        <div key={i} className="nes-container is-rounded flex items-center gap-4">
-          <div className="flex-shrink-0">
-            <img
-              src={set.cover}
-              className="object-cover border-4 border-black rounded"
-              style={{ width: '100px', height: '100px', marginRight: '1rem' }}
-              alt={`Cover for ${set.title}`}
-            />
-          </div>
-
-          <div className="flex flex-col flex-1 ">
-            <h3>{set.title}</h3>
-            <div className="flex flex-wrap gap-2" style={{ padding: "0.25rem", gap: "0.5rem" }}>
-                {set.genres.map((b) => (
-                  <Badge key={b} text={b} variant="primary" />
-                ))}
-                                {set.places.map((b) => (
-                  <Badge key={b} text={b} variant="dark" />
-                ))}
-            </div>
-
-            <div className="flex gap-4 mt-2 "  style={{ marginRight: '1rem', marginTop: '0.5rem' }}>
-              <button className="nes-btn is-success" style={{ width: '100px' }} onClick={() => togglePlay(i, set.url)}>
-                {currentIndex === i && AudioPlayer.getAudio() && !AudioPlayer.getAudio()!.paused
-                  ? "⏸ Pause"
-                  : "▶ Play"}
-              </button>
-
-              <div className="flex flex-col flex-1 justify-center" style={{ marginLeft: '0.25rem' }}>
-                <div className="flex flex-col" >
-                  <progress
-                    className="nes-progress is-primary w-full"
-                    value={progresses[i]}
-                    max={100}
+     <section className="nes-container with-title" style={{ padding: "1rem" }}>
+          <h2 className="title retro-title-blue" style={{ textAlign: "center" }}>TRACKS</h2>
+          <div className="flex flex-col gap-4 ">
+            {sets.map((set, i) => (
+              <div key={i} className="nes-container is-rounded  flex items-center gap-4 ">
+                {/* Left side: cover + logo */}
+                <div className="flex-shrink-0 flex flex-col " style={{alignItems:"center" , marginRight: '1rem'}}>
+                  <img
+                    src={set.cover}
+                    className="object-cover border-4 border-black rounded"
+                    style={{ width: "100px", height: "100px" }}
+                    alt={`Cover for ${set.title}`}
+                  />
+                  {/* Logo only */}
+                  <img
+                    src="/soundCloud-logo-2.png"
+                    alt="SoundCloud"
+                    className="w-6 h-6 mt-2"
                   />
                 </div>
-
-
-                <input
-                  type="range"
-                  min="0"
-                  max="100"
-                  step="0.1"
-                  value={progresses[i]}
-                  onChange={(e) => handleSeek(i, parseFloat(e.target.value))}
-                  className="w-full mt-2 appearance-none h-4 cursor-pointer"
-                />
+    
+                {/* Right side: title, link, badges, player */}
+                <div className="flex flex-col flex-1">
+                  <h3>{set.title}</h3>
+    
+                  {/* Link under the title */}
+                  <a
+                    href={set.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-xs mt-1 hover:underline"
+                  >
+                    Listen on SoundCloud
+                  </a>
+    
+                  <div className="flex flex-wrap gap-2" style={{ padding: "0.25rem", gap: "0.5rem" }}>
+                    {set.genres.map((b) => (
+                      <Badge key={b} text={b} variant="primary" />
+                    ))}
+                    {set.places.map((b) => (
+                      <Badge key={b} text={b} variant="dark" />
+                    ))}
+                  </div>
+    
+                  <div className="flex gap-4 mt-2" style={{ marginRight: '1rem', marginTop: '0.5rem' }}>
+                    <button
+                      className="nes-btn is-success"
+                      style={{ width: "100px" }}
+                      onClick={() => togglePlay(i, set.url)}
+                    >
+                      {currentIndex === i && AudioPlayer.getAudio() && !AudioPlayer.getAudio()!.paused
+                        ? "⏸ Pause"
+                        : "▶ Play"}
+                    </button>
+    
+                    <div className="flex flex-col flex-1 justify-center" style={{ marginLeft: '0.25rem' }}>
+                      <progress
+                        className="nes-progress is-primary w-full"
+                        value={progresses[i]}
+                        max={100}
+                      />
+                      <input
+                        type="range"
+                        min="0"
+                        max="100"
+                        step="0.1"
+                        value={progresses[i]}
+                        onChange={(e) => handleSeek(i, parseFloat(e.target.value))}
+                        className="w-full mt-2 appearance-none h-4 cursor-pointer"
+                      />
+                    </div>
+                  </div>
+                </div>
               </div>
-            </div>
+            ))}
           </div>
-        </div>
-      ))}
-    </div>
-    </section>
+        </section>
   );
 }

@@ -4,6 +4,7 @@ import "nes.css/css/nes.min.css";
 import "./globals.css";
 import { CharacterProvider } from "./context/CharacterContext";
 import { TransitionProvider } from "./provider/TransitionProvider";
+import { Analytics } from "@vercel/analytics/next"
 
 export const metadata: Metadata = {
   title: "My Retro Portfolio",
@@ -23,6 +24,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <CharacterProvider>
           <TransitionProvider>
             {children}
+            <Analytics/>
           </TransitionProvider>
         </CharacterProvider>
       </body>

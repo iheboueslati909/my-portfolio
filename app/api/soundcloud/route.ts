@@ -6,6 +6,14 @@ const CLIENT_SECRET = process.env.SOUNDCLOUD_CLIENT_SECRET!;
 let cachedToken = "";
 let tokenExpiry = 0;
 
+interface Transcoding {
+  url: string;
+  format: {
+    protocol: string;
+    mime_type?: string;
+  };
+}
+
 async function getAccessToken() {
   if (cachedToken && Date.now() < tokenExpiry) return cachedToken;
 
@@ -47,9 +55,9 @@ export async function GET(req: NextRequest) {
 
   // Step 2: Try modern way → media.transcodings
   if (track.media?.transcodings) {
-    const transcoding = track.media.transcodings.find(
-      (t: any) => t.format.protocol === "progressive"
-    );
+const transcoding = (track.media?.transcodings as Transcoding[] | undefined)?.find(
+  (t) => t.format.protocol === "progressive"
+);
     if (transcoding) {
       const transcodeRes = await fetch(transcoding.url, {
         headers: { Authorization: `OAuth ${token}` },

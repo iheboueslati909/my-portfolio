@@ -18,8 +18,8 @@ export default function DesignerServices() {
   ];
 
   return (
-   <section className="nes-container with-title" >
-  <h2 className="title text-center">🏛️ Pixel Portfolio Museum</h2>
+   <section className="nes-container with-title" style={{ padding: "1rem" }} >
+  <h2 className="title text-center retro-title-green"> Pixel Portfolio Museum</h2>
 
  <div className="flex flex-wrap justify-center" style={{ gap: '1rem' }}>
   {exhibits.map((ex) => (

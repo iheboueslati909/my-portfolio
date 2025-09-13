@@ -72,7 +72,7 @@ export default function TopBar({ onBack }: TopBarProps) {
           )}
 
           <button
-            className="nes-btn is-error shine-effect-container"
+            className="nes-btn  shine-effect-container"
             onClick={handleBack}
           >
             Change character
